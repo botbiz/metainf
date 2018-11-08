@@ -5,10 +5,10 @@
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Carousel */
 .carousel-caption p {
@@ -33,3 +33,4 @@
         display: none;
     }
 }
+
