@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Connections";
+}
+
+@*<div class="nav-scroller bg-white shadow-sm">
+    <nav class="nav nav-underline">
+        <a class="nav-link active" href="#">
+            Connections
+            <span class="badge badge-pill bg-light align-text-bottom">27</span>
+        </a>
+        <a class="nav-link" href="#">
+            All the configured connections for all databases
+        </a>
+    </nav>
+</div>*@
+
+<h5 style="float:left;line-height: 1;">@ViewData["Title"]</h5>
+
+<p style="color:#6c757d">&nbsp;- @ViewData["Message"] <span style="color:#6c757d" class="badge badge-pill bg-warning align-text-bottom">27</span></p>
+
+
+<table id="table"
+       data-toggle="table"
+       data-height="460"
+       data-pagination="true"
+       data-search="false"
+       data-url="resources/data1.json">
+    <thead>
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Item Name</th>
+            <th data-field="price">Item Price</th>
+        </tr>
+    </thead>
+</table>
+
+<script>
+    var $table = $('#table');
+    $(function () { });
+</script>
