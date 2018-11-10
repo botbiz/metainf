@@ -23,7 +23,7 @@
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand mr-auto mr-lg-0">
+        <a asp-area="" asp-controller="Home" asp-action="Index" style="line-height: 27px;" class="navbar-brand mr-auto mr-lg-0">
             <img src="~/images/m.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
             Metainf &nbsp;&nbsp;
         </a>
@@ -58,10 +58,6 @@
     @*<div class="container body-content">*@
     <div class="body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - metainf</p>
-        </footer>
     </div>
 
     <environment include="Development">
@@ -85,11 +81,27 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-en-US.min.js"></script>
+    
+    <script>
+        $(function () {
+            var $table = $('#table');
+
+            function getHeight() {
+                return $(window).height() - $('nav').outerHeight(true) - $('h5').outerHeight(true) ;
+            }
+
+            $(window).resize(function () {
+                $table.bootstrapTable('resetView', {
+                    height: getHeight()
+                });
+            });
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

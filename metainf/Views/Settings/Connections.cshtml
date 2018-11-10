@@ -2,39 +2,196 @@
     ViewData["Title"] = "Connections";
 }
 
-@*<div class="nav-scroller bg-white shadow-sm">
-    <nav class="nav nav-underline">
-        <a class="nav-link active" href="#">
-            Connections
-            <span class="badge badge-pill bg-light align-text-bottom">27</span>
-        </a>
-        <a class="nav-link" href="#">
-            All the configured connections for all databases
-        </a>
-    </nav>
-</div>*@
+@*<div style="height: 56px">
+        <h5 style="float:left;line-height: 2.4;">@ViewData["Title"]</h5>
+        &nbsp;<span style="color:#6c757d;" class="badge badge-pill bg-warning align-text-bottom">27</span>
+        <button style="float:right;" type="button" class="btn btn-secondary btn-sm">New connection</button>
+    </div>*@
 
-<h5 style="float:left;line-height: 1;">@ViewData["Title"]</h5>
+<div style="height: 56px">
+    <div style="float: left;line-height: 53px;font-weight: 600;font-size: 20px;">
+        @ViewData["Title"]
+    </div>
+    <div style="float: left;line-height: 56px;">
+        &nbsp;<span style="color:#6c757d;" class="badge bg-warning align-text-bottom">27</span>
+    </div>
+    <div style="float:right;line-height: 51px;">
+        <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">New connection</button>
+    </div>
+</div>
 
-<p style="color:#6c757d">&nbsp;- @ViewData["Message"] <span style="color:#6c757d" class="badge badge-pill bg-warning align-text-bottom">27</span></p>
-
-
-<table id="table"
-       data-toggle="table"
-       data-height="460"
-       data-pagination="true"
-       data-search="false"
-       data-url="resources/data1.json">
-    <thead>
+<table class="table table-hover table-striped table-bordered table-sm">
+    <thead style="background-color:#343a40;color: white;">
         <tr>
-            <th data-field="id">ID</th>
-            <th data-field="name">Item Name</th>
-            <th data-field="price">Item Price</th>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Host</th>
+            <th scope="col">Port</th>
+            <th scope="col">Database</th>
+            <th scope="col">Login</th>
+            <th scope="col" style="width: 10px"></th>
         </tr>
     </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td><a href="#">mssql-dev-172.16.0.1</a></td>
+            <td>mssql</td>
+            <td>172.16.0.1</td>
+            <td>1433</td>
+            <td>prod</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td><a href="#">mssql-dev-172.16.0.1</a></td>
+            <td>mssql</td>
+            <td>172.16.0.1</td>
+            <td>1433</td>
+            <td>prod</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td><a href="#">mssql-dev-172.16.0.1</a></td>
+            <td>mssql</td>
+            <td>172.16.0.1</td>
+            <td>1433</td>
+            <td>prod</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td><a href="#">mongo-dev-172.16.0.4</a></td>
+            <td>mongo</td>
+            <td>172.16.0.4</td>
+            <td>27775</td>
+            <td>prodmon</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td><a href="#">mongo-dev-172.16.0.4</a></td>
+            <td>mongo</td>
+            <td>172.16.0.4</td>
+            <td>27775</td>
+            <td>prodmon</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td><a href="#">mongo-dev-172.16.0.4</a></td>
+            <td>mongo</td>
+            <td>172.16.0.4</td>
+            <td>27775</td>
+            <td>prodmon</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td><a href="#">postgres-dev-172.16.0.19</a></td>
+            <td>postgres</td>
+            <td>172.16.0.19</td>
+            <td>51666</td>
+            <td>prodpost</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">8</th>
+            <td><a href="#">postgres-dev-172.16.0.19</a></td>
+            <td>postgres</td>
+            <td>172.16.0.19</td>
+            <td>51666</td>
+            <td>prodpost</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+        <tr>
+            <th scope="row">9</th>
+            <td><a href="#">postgres-dev-172.16.0.19</a></td>
+            <td>postgres</td>
+            <td>172.16.0.19</td>
+            <td>51666</td>
+            <td>prodpost</td>
+            <td>myuser</td>
+            <td><a href="#" class="badge badge-danger">X</a></td>
+        </tr>
+    </tbody>
 </table>
 
-<script>
-    var $table = $('#table');
-    $(function () { });
-</script>
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>*@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New connection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group row">
+                        <label for="Name" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Type" class="col-sm-2">Type</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="Type">
+                                <option>mssql</option>
+                                <option>mongo</option>
+                                <option>postgres</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Host" class="col-sm-2 col-form-label">Host</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Host">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Port" class="col-sm-2 col-form-label">Port</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Port">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Database" class="col-sm-2 col-form-label">Database</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Database">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Login" class="col-sm-2 col-form-label">Login</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Login">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Password" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="Password">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-sm">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
