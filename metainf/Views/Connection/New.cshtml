@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Connections > New";
+}
+
+<div style="height: 56px">
+    <div style="float: left;line-height: 53px;font-weight: 600;font-size: 20px;">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<form asp-action="Save" asp-controller="Connection">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control form-control-sm" id="Name">
+    </div>
+    <div class="form-group">
+        <label for="Type">Type</label>
+        <select class="form-control form-control-sm" id="Type">
+            <option>mssql</option>
+            <option>mongo</option>
+            <option>postgres</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Host">Host</label>
+        <input type="text" class="form-control form-control-sm" id="Host">
+    </div>
+    <div class="form-group">
+        <label for="Port">Port</label>
+        <input type="text" class="form-control form-control-sm" id="Port">
+    </div>
+    <div class="form-group">
+        <label for="Database">Database</label>
+        <input type="text" class="form-control form-control-sm" id="Database">
+    </div>
+    <div class="form-group">
+        <label for="Login">Login</label>
+        <input type="text" class="form-control form-control-sm" id="Login">
+    </div>
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control form-control-sm" id="Password">
+    </div>
+    <button style="margin-top:10px" type="submit" class="btn btn-secondary">Save connection</button>
+</form>
