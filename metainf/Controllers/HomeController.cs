@@ -10,9 +10,23 @@ namespace metainf.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MainContext _context;
+
+        public HomeController(MainContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
+            var blogs = _context.Connections.Where(b => b.Id > 3).ToList();
+
             return View();
+
+            //using (var context = serviceProvider.GetService<BloggingContext>())
+            //{
+            //    // do stuff
+            //}
         }
 
         public IActionResult About()

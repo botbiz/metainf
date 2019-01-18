@@ -88,19 +88,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-en-US.min.js"></script>
     
     <script>
-        $(function () {
-            var $table = $('#table');
+        //$(function () {
+        //    var $table = $('#table');
 
-            function getHeight() {
-                return $(window).height() - $('nav').outerHeight(true) - $('h5').outerHeight(true) ;
-            }
+        //    function getHeight() {
+        //        return $(window).height() - $('nav').outerHeight(true) - $('h5').outerHeight(true) ;
+        //    }
 
-            $(window).resize(function () {
-                $table.bootstrapTable('resetView', {
-                    height: getHeight()
-                });
-            });
-        });
+        //    $(window).resize(function () {
+        //        $table.bootstrapTable('resetView', {
+        //            height: getHeight()
+        //        });
+        //    });
+        //});
     </script>
 
     @RenderSection("Scripts", required: false)

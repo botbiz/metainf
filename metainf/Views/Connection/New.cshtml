@@ -8,38 +8,38 @@
     </div>
 </div>
 
-<form asp-action="Save" asp-controller="Connection">
-    <div class="form-group">
-        <label for="Name">Name</label>
-        <input type="text" class="form-control form-control-sm" id="Name">
+<form asp-action="Save" asp-controller="Connection" style="font-size: 14px">
+    <div class="form-group" style="margin-bottom: 0.5rem">
+        <label for="Name" style="margin-bottom: 0.2rem">Name</label>
+        <input type="text" class="form-control form-control-sm col-sm-4" id="Name">
     </div>
-    <div class="form-group">
-        <label for="Type">Type</label>
-        <select class="form-control form-control-sm" id="Type">
+    <div class="form-group" style="margin-bottom: 0.5rem">
+        <label for="Type" style="margin-bottom: 0.2rem">Type</label>
+        <select class="form-control form-control-sm col-sm-4" id="Type">
             <option>mssql</option>
             <option>mongo</option>
             <option>postgres</option>
         </select>
     </div>
-    <div class="form-group">
-        <label for="Host">Host</label>
-        <input type="text" class="form-control form-control-sm" id="Host">
+    <div class="form-group" style="margin-bottom: 0.5rem">
+        <label for="Host" style="margin-bottom: 0.2rem">Host</label>
+        <input type="text" class="form-control form-control-sm col-sm-4" id="Host">
     </div>
-    <div class="form-group">
-        <label for="Port">Port</label>
-        <input type="text" class="form-control form-control-sm" id="Port">
+    <div class="form-group" style="margin-bottom: 0.5rem">
+        <label for="Port" style="margin-bottom: 0.2rem">Port</label>
+        <input type="text" class="form-control form-control-sm col-sm-4" id="Port">
     </div>
-    <div class="form-group">
-        <label for="Database">Database</label>
-        <input type="text" class="form-control form-control-sm" id="Database">
+    <div class="form-group" style="margin-bottom: 0.5rem">
+        <label for="Database" style="margin-bottom: 0.2rem">Database</label>
+        <input type="text" class="form-control form-control-sm col-sm-4" id="Database">
     </div>
-    <div class="form-group">
-        <label for="Login">Login</label>
-        <input type="text" class="form-control form-control-sm" id="Login">
+    <div class="form-group" style="margin-bottom: 0.5rem">
+        <label for="Login" style="margin-bottom: 0.2rem">Login</label>
+        <input type="text" class="form-control form-control-sm col-sm-4" id="Login">
     </div>
-    <div class="form-group">
-        <label for="Password">Password</label>
-        <input type="password" class="form-control form-control-sm" id="Password">
+    <div class="form-group" style="margin-bottom: 0.5rem">
+        <label for="Password" style="margin-bottom: 0.2rem">Password</label>
+        <input type="password" class="form-control form-control-sm col-sm-4" id="Password">
     </div>
     <button style="margin-top:10px" type="submit" class="btn btn-secondary">Save connection</button>
 </form>
