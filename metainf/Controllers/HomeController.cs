@@ -19,33 +19,37 @@ namespace metainf.Controllers
 
         public IActionResult Index()
         {
-            var blogs = _context.Connections.Where(b => b.Id > 3).ToList();
-
-            return View();
-
-            //using (var context = serviceProvider.GetService<BloggingContext>())
-            //{
-            //    // do stuff
-            //}
+            return View(_context.FromTo.ToList());
         }
 
-        public IActionResult About()
+        public IActionResult New()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return View(_context.Connection.ToList());
         }
 
-        public IActionResult Contact()
+        public IActionResult Update(int id)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View(_context.Connection.Where(x => x.Id.Equals(id)).FirstOrDefault());
         }
 
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Save(Connection connection)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (connection.Id == 0)
+                _context.Add(connection);
+            else
+                _context.Update(connection);
+
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            _context.Remove(new Connection { Id = id });
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

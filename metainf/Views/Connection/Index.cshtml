@@ -1,6 +1,6 @@
-﻿@model List<FromTo>
+﻿@model List<Connection>
 @{
-    ViewData["Title"] = "FromTo's";
+    ViewData["Title"] = "Connections";
 }
 
 <div style="height: 56px">
@@ -8,8 +8,8 @@
         @ViewData["Title"]
     </div>
     <div style="float:right;line-height: 51px;">
-        <a asp-area="" asp-controller="Home" asp-action="New" class="">
-            <button type="button" class="btn btn-secondary btn-sm">New FromTo</button>
+        <a asp-area="" asp-controller="Connection" asp-action="New" class="">
+            <button type="button" class="btn btn-secondary btn-sm">New connection</button>
         </a>
     </div>
 </div>
@@ -19,10 +19,11 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">From</th>
-            <th scope="col">To</th>
-            <th scope="col">CanUpdate</th>
-            <th scope="col">Active</th>
+            <th scope="col">Type</th>
+            <th scope="col">Host</th>
+            <th scope="col">Port</th>
+            <th scope="col">Database</th>
+            <th scope="col">Login</th>
             <th scope="col" style="width: 10px"></th>
         </tr>
     </thead>
@@ -32,9 +33,11 @@
             <tr>
                 <th scope="row">@item.Id</th>
                 <td><a asp-area="" asp-controller="Connection" asp-action="Update" asp-route-id="@item.Id">@item.Name</a></td>
-                <td>@item.ConnectionFrom.Host/@item.TableFrom > @item.ConnectionTo.Host/@item.TableTo</td>
-                <td>@item.CanUpdate</td>
-                <td>@item.Active</td>
+                <td>@item.Type</td>
+                <td>@item.Host</td>
+                <td>@item.Port</td>
+                <td>@item.Database</td>
+                <td>@item.Login</td>
                 <td><a asp-area="" asp-controller="Connection" asp-action="Delete" asp-route-id="@item.Id" class="badge badge-danger">X</a></td>
             </tr>
         }

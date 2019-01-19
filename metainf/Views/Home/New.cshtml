@@ -1,0 +1,72 @@
+﻿@model List<Connection>
+@{
+    ViewData["Title"] = "FromTo's > New";
+}
+
+<div style="height: 56px">
+    <div style="float: left;line-height: 53px;font-weight: 600;font-size: 20px;">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<form asp-action="Save" asp-controller="Connection" style="font-size: 14px">
+    <div>
+        <div class="col-sm-6" style="float:left; padding-left:0px">
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="ConnectionFrom" style="margin-bottom: 0.2rem">ConnectionFrom</label>
+                <select class="form-control form-control-sm col-sm-12" name="ConnectionFrom" id="ConnectionFrom">
+                    <option id="0">Select a connection</option>
+                    @foreach (var item in Model)
+                    {
+                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="TableFrom" style="margin-bottom: 0.2rem">TableFrom</label>
+                <select class="form-control form-control-sm col-sm-12" name="TableFrom" id="TableFrom">
+                    @foreach (var item in Model)
+                    {
+                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6" style="float:right; padding-right:0px">
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="ConnectionTo" style="margin-bottom: 0.2rem">ConnectionTo</label>
+                <select class="form-control form-control-sm col-sm-12" name="ConnectionTo" id="ConnectionTo">
+                    <option id="0">Select a connection</option>
+                    @foreach (var item in Model)
+                    {
+                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="TableTo" style="margin-bottom: 0.2rem">TableTo</label>
+                <select class="form-control form-control-sm col-sm-12" name="TableTo" id="TableTo">
+                    @foreach (var item in Model)
+                    {
+                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <button style="margin-top:10px" type="submit" class="btn btn-secondary">Save connection</button>
+</form>
+
+<script>
+    $(function () {
+        alert('aha')
+        $('#ConnectionFrom').on('change', function() {
+            //var postData = document.getElementById("selectChangedValue").value;
+            // var post = { MarketplaceKey: postData};
+
+            //window.location = "/CompetitorsMarketplace/Index?textSearchMarketplace=" + postData;
+
+            alert('aha')
+        });
+    });
+</script>

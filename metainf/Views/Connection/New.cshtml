@@ -11,11 +11,11 @@
 <form asp-action="Save" asp-controller="Connection" style="font-size: 14px">
     <div class="form-group" style="margin-bottom: 0.5rem">
         <label for="Name" style="margin-bottom: 0.2rem">Name</label>
-        <input type="text" class="form-control form-control-sm col-sm-4" id="Name">
+        <input type="text" class="form-control form-control-sm col-sm-4" name="Name">
     </div>
     <div class="form-group" style="margin-bottom: 0.5rem">
         <label for="Type" style="margin-bottom: 0.2rem">Type</label>
-        <select class="form-control form-control-sm col-sm-4" id="Type">
+        <select class="form-control form-control-sm col-sm-4" name="Type">
             <option>mssql</option>
             <option>mongo</option>
             <option>postgres</option>
@@ -23,23 +23,23 @@
     </div>
     <div class="form-group" style="margin-bottom: 0.5rem">
         <label for="Host" style="margin-bottom: 0.2rem">Host</label>
-        <input type="text" class="form-control form-control-sm col-sm-4" id="Host">
+        <input type="text" class="form-control form-control-sm col-sm-4" name="Host">
     </div>
     <div class="form-group" style="margin-bottom: 0.5rem">
         <label for="Port" style="margin-bottom: 0.2rem">Port</label>
-        <input type="text" class="form-control form-control-sm col-sm-4" id="Port">
+        <input type="text" class="form-control form-control-sm col-sm-4" name="Port">
     </div>
     <div class="form-group" style="margin-bottom: 0.5rem">
         <label for="Database" style="margin-bottom: 0.2rem">Database</label>
-        <input type="text" class="form-control form-control-sm col-sm-4" id="Database">
+        <input type="text" class="form-control form-control-sm col-sm-4" name="Database">
     </div>
     <div class="form-group" style="margin-bottom: 0.5rem">
         <label for="Login" style="margin-bottom: 0.2rem">Login</label>
-        <input type="text" class="form-control form-control-sm col-sm-4" id="Login">
+        <input type="text" class="form-control form-control-sm col-sm-4" name="Login">
     </div>
     <div class="form-group" style="margin-bottom: 0.5rem">
         <label for="Password" style="margin-bottom: 0.2rem">Password</label>
-        <input type="password" class="form-control form-control-sm col-sm-4" id="Password">
+        <input type="password" class="form-control form-control-sm col-sm-4" name="Password">
     </div>
     <button style="margin-top:10px" type="submit" class="btn btn-secondary">Save connection</button>
 </form>

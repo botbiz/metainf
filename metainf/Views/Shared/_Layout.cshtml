@@ -36,18 +36,11 @@
                     @*<a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">dash <span class="sr-only">(current)</span></a>*@
                     <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Home" asp-action="About" class="nav-link">Query</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-link">Discover</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a asp-area="" asp-controller="Settings" asp-action="Connections" class="dropdown-item">Connections</a>
+                        <a asp-area="" asp-controller="Connection" asp-action="Index" class="dropdown-item">Connections</a>
                         <a asp-area="" asp-controller="Settings" asp-action="Users" class="dropdown-item">Users</a>
-                        <a asp-area="" asp-controller="Settings" asp-action="Users" class="dropdown-item">Something else</a>
                     </div>
                 </li>
             </ul>
