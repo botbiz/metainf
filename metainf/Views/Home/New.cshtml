@@ -24,11 +24,13 @@
             </div>
             <div class="form-group" style="margin-bottom: 0.5rem">
                 <label for="TableFrom" style="margin-bottom: 0.2rem">TableFrom</label>
-                <select class="form-control form-control-sm col-sm-12" name="TableFrom" id="TableFrom">
-                    @foreach (var item in Model)
-                    {
-                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
-                    }
+                <select class="form-control form-control-sm col-sm-12" name="TableFrom" id="TableFrom" data-live-search="true">
+                    <option id="0"> Select a connection first</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="ColumnFrom" style="margin-bottom: 0.2rem">ColumnFrom</label>
+                <select class="form-control form-control-sm col-sm-12" name="ColumnFrom" id="ColumnFrom" data-live-search="true" multiple data-selected-text-format="count">
                 </select>
             </div>
         </div>
@@ -45,28 +47,16 @@
             </div>
             <div class="form-group" style="margin-bottom: 0.5rem">
                 <label for="TableTo" style="margin-bottom: 0.2rem">TableTo</label>
-                <select class="form-control form-control-sm col-sm-12" name="TableTo" id="TableTo">
-                    @foreach (var item in Model)
-                    {
-                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
-                    }
+                <select class="form-control form-control-sm col-sm-12" name="TableTo" id="TableTo" data-live-search="true">
+                    <option id="0">Select a connection first</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="ColumnTo" style="margin-bottom: 0.2rem">ColumnTo</label>
+                <select class="form-control form-control-sm col-sm-12" name="ColumnTo" id="ColumnTo" data-live-search="true" multiple data-selected-text-format="count">
                 </select>
             </div>
         </div>
     </div>
-    <button style="margin-top:10px" type="submit" class="btn btn-secondary">Save connection</button>
+    <button style="margin-top:10px" type="submit" class="btn btn-secondary">Save FromTo</button>
 </form>
-
-<script>
-    $(function () {
-        alert('aha')
-        $('#ConnectionFrom').on('change', function() {
-            //var postData = document.getElementById("selectChangedValue").value;
-            // var post = { MarketplaceKey: postData};
-
-            //window.location = "/CompetitorsMarketplace/Index?textSearchMarketplace=" + postData;
-
-            alert('aha')
-        });
-    });
-</script>

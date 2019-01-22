@@ -18,6 +18,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <link href="~/lib/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap4-duallistbox/dist/bootstrap-duallistbox.css" rel="stylesheet" />
 
     <link href="~/css/offcanvas.css" rel="stylesheet" />
 </head>
@@ -79,7 +81,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-en-US.min.js"></script>
-    
+    <script src="~/lib/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="~/lib/bootstrap4-duallistbox/dist/jquery.bootstrap-duallistbox.js"></script>
+
     <script>
         //$(function () {
         //    var $table = $('#table');
@@ -94,6 +98,140 @@
         //        });
         //    });
         //});
+
+        $(function () {
+            $('#ConnectionFrom').selectpicker();
+            $('#ConnectionTo').selectpicker();
+            $('#TableFrom').selectpicker();
+            $('#TableTo').selectpicker();
+            $('#ColumnFrom').selectpicker();
+            $('#ColumnTo').selectpicker();
+
+            $('#ConnectionFrom').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+                var id = $(this).children(":selected").attr("id");
+                if (id != 0) {
+                    console.log(id)
+                    $.ajax({
+                        type: 'GET',
+                        url: "GetTables",
+                        data: { connectionId: id },
+                        success: function (result) {
+                            $('#TableFrom').html(result);
+                            $('#TableFrom').selectpicker('refresh');
+                        },
+                        error: function (result) {
+                            alert('Error!');
+                        }
+                    });
+                } else {
+                    $('#TableFrom').empty();
+                    $('#TableFrom').selectpicker('destroy');
+                    $('#TableFrom').html('<option id="0">Select a connection first</option>');
+                    $('#TableFrom').selectpicker('refresh');
+
+                    $('#ColumnFrom').empty();
+                    $('#ColumnFrom').selectpicker('destroy');
+                    $('#ColumnFrom').selectpicker('refresh');
+                }
+            });
+
+            $('#ConnectionTo').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+                var id = $(this).children(":selected").attr("id");
+                if (id != 0) {
+                    console.log(id)
+                    $.ajax({
+                        type: 'GET',
+                        url: "GetTables",
+                        data: { connectionId: id },
+                        success: function (result) {
+                            $('#TableTo').html(result);
+                            $('#TableTo').selectpicker('refresh');
+                        },
+                        error: function (result) {
+                            alert('Error!');
+                        }
+                    });
+                } else {
+                    $('#TableTo').empty();
+                    $('#TableTo').selectpicker('destroy');
+                    $('#TableTo').html('<option id="0">Select a connection first</option>');
+                    $('#TableTo').selectpicker('refresh');
+
+                    $('#ColumnTo').empty();
+                    $('#ColumnTo').selectpicker('destroy');
+                    $('#ColumnTo').selectpicker('refresh');
+                }
+            });
+
+            $('#TableFrom').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+                var id = $('#ConnectionFrom').children(":selected").attr("id");
+                var table = $(this).val();
+                if (id != 0 && table != 0) {
+                    console.log(id)
+                    console.log(table)
+                    $.ajax({
+                        type: 'GET',
+                        url: "GetColumns",
+                        data: { connectionId: id, table: table },
+                        success: function (result) {
+                            $('#ColumnFrom').html(result);
+                            $('#ColumnFrom').selectpicker('refresh');
+                        },
+                        error: function (result) {
+                            alert('Error!');
+                        }
+                    });
+                } else {
+                    $('#ColumnFrom').empty();
+                    $('#ColumnFrom').selectpicker('destroy');
+                    $('#ColumnFrom').selectpicker('refresh');
+                }
+            });
+
+            $('#TableTo').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+                var id = $('#ConnectionTo').children(":selected").attr("id");
+                var table = $(this).val();
+                if (id != 0 && table != 0) {
+                    console.log(id)
+                    console.log(table)
+                    $.ajax({
+                        type: 'GET',
+                        url: "GetColumns",
+                        data: { connectionId: id, table: table },
+                        success: function (result) {
+                            $('#ColumnTo').html(result);
+                            $('#ColumnTo').selectpicker('refresh');
+                        },
+                        error: function (result) {
+                            alert('Error!');
+                        }
+                    });
+                } else {
+                    $('#ColumnTo').empty();
+                    $('#ColumnTo').selectpicker('destroy');
+                    $('#ColumnTo').selectpicker('refresh');
+                }
+            });
+
+            //$('#ColumnFrom').bootstrapDualListbox({ selectorMinimalHeight: '180'})
+            //$('#ColumnTo').bootstrapDualListbox({ selectorMinimalHeight: '180'})
+
+            //var ColumnFrom = $('#ColumnFrom').bootstrapDualListbox({
+            //    nonSelectedListLabel: 'Non-selected',
+            //    selectedListLabel: 'Selected',
+            //    preserveSelectionOnMove: 'moved',
+            //    moveOnSelect: true,
+            //    filterTextClear: 'Clear filter'
+            //});
+
+            //var ColumnTo = $('#ColumnTo').bootstrapDualListbox({
+            //    nonSelectedListLabel: 'Non-selected',
+            //    selectedListLabel: 'Selected',
+            //    preserveSelectionOnMove: 'moved',
+            //    moveOnSelect: true,
+            //    filterTextClear: 'Clear filter'
+            //});
+        });
     </script>
 
     @RenderSection("Scripts", required: false)

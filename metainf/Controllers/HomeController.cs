@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using metainf.Models;
+using metainf.DataAccess;
 
 namespace metainf.Controllers
 {
@@ -50,6 +51,20 @@ namespace metainf.Controllers
             _context.Remove(new Connection { Id = id });
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public string GetTables(int connectionId)
+        {
+            FromToDataAccess fromToDataAccess = new FromToDataAccess(_context);
+            return fromToDataAccess.GetTables(connectionId);
+        }
+
+        [HttpGet]
+        public string GetColumns(int connectionId, string table)
+        {
+            FromToDataAccess fromToDataAccess = new FromToDataAccess(_context);
+            return fromToDataAccess.GetColumns(connectionId, table);
         }
     }
 }
