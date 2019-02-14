@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="~/lib/jquery-flow-chart/dist/jquery.flowchart.css" rel="stylesheet" /> -->
+	<link href="C:\Users\Vinicius B. Bizarri\source\repos\metainf\metainf\wwwroot\lib\jquery-flow-chart\dist\jquery.flowchart.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="flow" style="width:500px;height:500px"><div id="example_1" style="width:500px;height:500px">example_1</div></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!-- <script src="~/lib/jquery-flow-chart/dist/jquery.flowchart.js"></script> -->
+	<script src="C:\Users\Vinicius B. Bizarri\source\repos\metainf\metainf\wwwroot\lib\jquery-flow-chart\dist\jquery.flowchart.js"></script>
+	
+    <script>
+		$(document).ready(function() {
+			var data = {
+			  operators: {
+				operator: {
+				  top: 20,
+				  left: 20,
+				  properties: {
+					title: 'Operator',
+					inputs: {
+					  input_1: {
+						label: 'Input 1',
+					  },
+					  input_2: {
+						label: 'Input 2',
+					  }
+					},
+					outputs: {
+					  output_1: {
+						label: 'Output 1',
+					  },
+					  output_2: {
+						label: 'Output 2',
+					  },
+					  output_3: {
+						label: 'Output 3',
+					  }
+					}
+				  }
+				}
+			  }
+			};
+
+			// Apply the plugin on a standard, empty div...
+			$('#example_1').flowchart({
+			  data: data
+			});
+		});
+    </script>
+</body>
+</html>

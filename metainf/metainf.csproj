@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\bootstrap-select\" />
+    <Folder Include="wwwroot\lib\jquery-flow-chart\" />
   </ItemGroup>
 
 </Project>

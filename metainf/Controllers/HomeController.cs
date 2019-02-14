@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using metainf.Models;
 using metainf.DataAccess;
+using Microsoft.Extensions.Configuration;
 
 namespace metainf.Controllers
 {
     public class HomeController : Controller
     {
         private readonly MainContext _context;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(MainContext context)
+        public HomeController(MainContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -56,14 +59,14 @@ namespace metainf.Controllers
         [HttpGet]
         public string GetTables(int connectionId)
         {
-            FromToDataAccess fromToDataAccess = new FromToDataAccess(_context);
+            FromToDataAccess fromToDataAccess = new FromToDataAccess(_context, _configuration);
             return fromToDataAccess.GetTables(connectionId);
         }
 
         [HttpGet]
         public string GetColumns(int connectionId, string table)
         {
-            FromToDataAccess fromToDataAccess = new FromToDataAccess(_context);
+            FromToDataAccess fromToDataAccess = new FromToDataAccess(_context, _configuration);
             return fromToDataAccess.GetColumns(connectionId, table);
         }
     }

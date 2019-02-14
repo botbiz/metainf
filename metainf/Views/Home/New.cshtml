@@ -10,16 +10,16 @@
 </div>
 
 <form asp-action="Save" asp-controller="Connection" style="font-size: 14px">
-    <div>
-        <div class="col-sm-6" style="float:left; padding-left:0px">
+    <div style="height:700px">
+        <div class="col-sm-4" style="float:left; padding-left:0px">
             <div class="form-group" style="margin-bottom: 0.5rem">
                 <label for="ConnectionFrom" style="margin-bottom: 0.2rem">ConnectionFrom</label>
                 <select class="form-control form-control-sm col-sm-12" name="ConnectionFrom" id="ConnectionFrom">
                     <option id="0">Select a connection</option>
                     @foreach (var item in Model)
-                    {
-                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
-                    }
+            {
+                <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
+    }
                 </select>
             </div>
             <div class="form-group" style="margin-bottom: 0.5rem">
@@ -30,19 +30,27 @@
             </div>
             <div class="form-group" style="margin-bottom: 0.5rem">
                 <label for="ColumnFrom" style="margin-bottom: 0.2rem">ColumnFrom</label>
-                <select class="form-control form-control-sm col-sm-12" name="ColumnFrom" id="ColumnFrom" data-live-search="true" multiple data-selected-text-format="count">
+                <select class="form-control form-control-sm col-sm-12" name="ColumnFrom" id="ColumnFrom" data-live-search="true" multiple data-selected-text-format="count"></select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="RelationColumnFrom" style="margin-bottom: 0.2rem">RelationColumnFrom</label>
+                <select class="form-control form-control-sm col-sm-12" name="ColumnFrom" id="RelationColumnFrom" data-live-search="true">
+                    <option id="0">Select a table first</option>
                 </select>
             </div>
         </div>
-        <div class="col-sm-6" style="float:right; padding-right:0px">
+        <div class="col-sm-4">
+            <div id="fslow" class="col-sm-12"></div>
+        </div>
+        <div class="col-sm-4" style="float:right; padding-right:0px">
             <div class="form-group" style="margin-bottom: 0.5rem">
                 <label for="ConnectionTo" style="margin-bottom: 0.2rem">ConnectionTo</label>
                 <select class="form-control form-control-sm col-sm-12" name="ConnectionTo" id="ConnectionTo">
                     <option id="0">Select a connection</option>
                     @foreach (var item in Model)
-                    {
-                        <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
-                    }
+            {
+                <option id="@item.Id">@item.Name (@item.Host/@item.Database)</option>
+    }
                 </select>
             </div>
             <div class="form-group" style="margin-bottom: 0.5rem">
@@ -53,7 +61,12 @@
             </div>
             <div class="form-group" style="margin-bottom: 0.5rem">
                 <label for="ColumnTo" style="margin-bottom: 0.2rem">ColumnTo</label>
-                <select class="form-control form-control-sm col-sm-12" name="ColumnTo" id="ColumnTo" data-live-search="true" multiple data-selected-text-format="count">
+                <select class="form-control form-control-sm col-sm-12" name="ColumnTo" id="ColumnTo" data-live-search="true" multiple data-selected-text-format="count"></select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem">
+                <label for="RelationColumnTo" style="margin-bottom: 0.2rem">RelationColumnTo</label>
+                <select class="form-control form-control-sm col-sm-12" name="ColumnFrom" id="RelationColumnTo" data-live-search="true">
+                    <option id="0">Select a table first</option>
                 </select>
             </div>
         </div>
